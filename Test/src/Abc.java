@@ -1,7 +1,5 @@
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,7 +22,6 @@ public class Abc {
 
 	public static void main(String[] args) {
 		
-		Abc akramul=new Abc();
 		List<Abc> list= new ArrayList<Abc>(); 
 		
 		list.add(new Abc(1,"singgara",20));
@@ -32,10 +29,11 @@ public class Abc {
 		list.add(new Abc(3,"orange",5000));
 		list.add(new Abc(4,"banana",8000));
 		
-		List<Integer> l=list.stream().filter(aList-> aList.name=="apple").map(a-> a.price).collect(Collectors.toList());
+		List<Abc> l=list.stream().filter(aList-> aList.id==2).map(a-> a).collect(Collectors.toList());
 		
-		//System.out.println(l);
-		Stream.iterate(2,e-> e+1).filter(e->e%2!=0).limit(10).forEach(System.out::println);
+		System.out.println(l.get(0).name.toUpperCase()+", length = "+l.size());
+		//print 5 number
+		Stream.iterate(2,e-> e+1).filter(e->e%2!=0).limit(5).forEach(System.out::println);
 		
 	}
 }
